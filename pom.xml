@@ -10,9 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>receiver_io_data</module>
-        <module>producter_io_data</module>
-        <module>producter_io_data2</module>
-        <module>test</module>
+        <module>productor_io_data</module>
     </modules>
 
     <properties>
