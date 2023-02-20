@@ -3,16 +3,8 @@ package tools;
 import org.influxdb.BatchOptions;
 import org.influxdb.InfluxDB;
 import org.influxdb.InfluxDBFactory;
-import org.influxdb.dto.Point;
 import org.influxdb.dto.Query;
 import org.influxdb.dto.QueryResult;
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 /**
  * @author zzmax.
@@ -21,6 +13,7 @@ import java.util.stream.Collectors;
 public class Test {
 
     public static void main(String[] args) throws InterruptedException {
+        System.out.println("hello?");
 
 //        InfluxDBConnection influxDBConnection = new InfluxDBConnection("zzmax", "2000625lmxxml@influxdb", "http://47.113.230.141", "db-test", "hour");
 //        QueryResult results = influxDBConnection
@@ -43,7 +36,7 @@ public class Test {
 //                }
 //            }
 //        }
-//        InfluxDBConnection influxDBConnection = new InfluxDBConnection("zzmax", "2000625lmxxml@influxdb", "http://47.113.230.141:8086", "db_test", "hour");
+        InfluxDBConnection influxDBConnection = new InfluxDBConnection("zzmax", "2000625lmxxml@influxdb", "http://47.113.230.141:8086", "db_test", "hour");
 //        Map<String, String> tags = new HashMap<String, String>();
 //        tags.put("tag1", "标签值");
 //        Map<String, Object> fields = new HashMap<String, Object>();
@@ -59,8 +52,8 @@ public class Test {
         final String serverURL = "http://47.113.230.141:8086", username = "zzmax", password = "2000625lmxxml@influxdb";
         final InfluxDB influxDB = InfluxDBFactory.connect(serverURL, username, password);
         String databaseName = "db_test";
-
-        influxDB.setDatabase(databaseName);
+//
+//        influxDB.setDatabase(databaseName);
 
 //        String retentionPolicyName = "hour";
 //
@@ -75,16 +68,16 @@ public class Test {
                         })
         );
         Runtime.getRuntime().addShutdownHook(new Thread(influxDB::close));
-        influxDB.write(Point.measurement("mouse_location_data")
-                .time(System.currentTimeMillis(), TimeUnit.MILLISECONDS)
-                .tag("x", "1024")
-                .addField("y", "768")
-                .build());
+//        influxDB.write(Point.measurement("mouse_location_data")
+//                .time(System.currentTimeMillis(), TimeUnit.MILLISECONDS)
+//                .tag("x", "1024")
+//                .addField("y", "768")
+//                .build());
 
 
         // Query your data using InfluxQL.
         // https://docs.influxdata.com/influxdb/v1.7/query_language/data_exploration/#the-basic-select-statement
-        QueryResult queryResult = influxDB.query(new Query("SELECT * FROM mouse_location_data"));
+        QueryResult queryResult = influxDB.query(new Query("SELECT LAST(x) FROM mouse_location_data"));
 
         System.out.println(queryResult);
     }

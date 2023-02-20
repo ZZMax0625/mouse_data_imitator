@@ -5,7 +5,7 @@ import io_driver.MouseInfoCollector;
  * @author zzmax.
  * @date 2023/2/2 14:23
  */
-public class Application {
+public class WriteApplication {
     public static void main(String[] args) {
 
         System.out.println("program running...");

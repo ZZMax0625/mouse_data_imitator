@@ -11,6 +11,8 @@
     <modules>
         <module>receiver_io_data</module>
         <module>producter_io_data</module>
+        <module>producter_io_data2</module>
+        <module>test</module>
     </modules>
 
     <properties>

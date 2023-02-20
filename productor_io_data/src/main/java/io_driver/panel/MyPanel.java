@@ -1,7 +1,6 @@
 package io_driver.panel;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 

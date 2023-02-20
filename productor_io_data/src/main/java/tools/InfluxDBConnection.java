@@ -1,19 +1,6 @@
 package tools;
 
 import org.influxdb.InfluxDB;
-import org.influxdb.InfluxDBFactory;
-import org.influxdb.dto.Point;
-import org.influxdb.dto.Point.Builder;
-import org.influxdb.dto.Query;
-import org.influxdb.dto.QueryResult;
-import java.util.Map;
-
-/**
- * 时序数据库 InfluxDB 连接
- * @author Dai_LW
- *
- */
-import org.influxdb.InfluxDB;
 import org.influxdb.InfluxDB.ConsistencyLevel;
 import org.influxdb.InfluxDBFactory;
 import org.influxdb.dto.*;

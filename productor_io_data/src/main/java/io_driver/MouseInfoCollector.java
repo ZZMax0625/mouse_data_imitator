@@ -5,7 +5,6 @@ import org.influxdb.InfluxDB;
 import org.influxdb.InfluxDBFactory;
 
 import java.awt.*;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -51,7 +50,7 @@ public class MouseInfoCollector implements Runnable {
             Runtime.getRuntime().addShutdownHook(new Thread(influxDB::close));
             influxDB.write(org.influxdb.dto.Point.measurement("mouse_location_data")
                     .time(System.currentTimeMillis(), TimeUnit.MILLISECONDS)
-                    .tag("x", String.valueOf(this.getMouseLocation()[0]))
+                    .addField("x", String.valueOf(this.getMouseLocation()[0]))
                     .addField("y", String.valueOf(this.getMouseLocation()[1]))
                     .build());
             try {
