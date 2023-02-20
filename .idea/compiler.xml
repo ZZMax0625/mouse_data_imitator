@@ -6,7 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="client_io_data" />
+        <module name="producter_io_data" />
+        <module name="receiver_io_data" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17" />

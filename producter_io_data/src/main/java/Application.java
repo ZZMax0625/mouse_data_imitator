@@ -1,4 +1,3 @@
-import io_driver.KeyboardCollector;
 import io_driver.MouseInfoCollector;
 
 /**
